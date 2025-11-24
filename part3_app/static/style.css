@@ -1,0 +1,152 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2933;
+  background-color: #f5f7fa;
+}
+
+body {
+  margin: 0;
+}
+
+.top-bar {
+  background: #0f172a;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar nav a {
+  color: #cbd5f5;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  padding: 2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  border: none;
+  background: #e2e8f0;
+  color: #0f172a;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn.danger {
+  background: #e11d48;
+  color: #fff;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+th,
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background: #f1f5f9;
+  text-align: left;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label span {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #cbd5f5;
+  font-size: 1rem;
+}
+
+.form-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(15, 23, 42, 0.08);
+  max-width: 640px;
+}
+
+.flash {
+  list-style: none;
+  padding: 0;
+}
+
+.flash li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.flash .success {
+  background: #dcfce7;
+}
+
+.flash .info {
+  background: #e0f2fe;
+}
+
+.flash .error {
+  background: #fee2e2;
+}
+

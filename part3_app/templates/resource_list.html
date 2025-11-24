@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  <header class="section-header">
+    <h2>{{ config.title }}</h2>
+    <a class="btn primary" href="{{ url_for(resource + '_create') }}">Add {{ config.title[:-1] if config.title.endswith('s') else config.title }}</a>
+  </header>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          {% for column in config.list_columns %}
+            <th>{{ column.label }}</th>
+          {% endfor %}
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>
+            {% for column in config.list_columns %}
+              <td>{{ getattr_fn(row.record, column.name) }}</td>
+            {% endfor %}
+            <td class="actions">
+              <a class="btn" href="{{ url_for(resource + '_edit', **row.pk) }}">Edit</a>
+              <form method="post" action="{{ url_for(resource + '_delete', **row.pk) }}" onsubmit="return confirm('Delete this record?');">
+                <button type="submit" class="btn danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if not rows %}
+      <p>No records yet.</p>
+    {% endif %}
+  </div>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="cards">
+    {% for slug, count in counts.items() %}
+      <article class="card">
+        <h2>{{ resources[slug].title }}</h2>
+        <p>{{ count }} record{{ '' if count == 1 else 's' }}</p>
+        <a class="btn" href="{{ url_for(slug + '_list') }}">Manage</a>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}
+

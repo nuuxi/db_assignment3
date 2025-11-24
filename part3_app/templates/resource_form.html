@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="form-card">
+    <h2>{{ action }} {{ config.title[:-1] if config.title.endswith('s') else config.title }}</h2>
+    <form method="post">
+      {% for field in config.form_fields %}
+        <label>
+          <span>{{ field.label }}</span>
+          {% if field.input_type == 'textarea' %}
+            <textarea name="{{ field.name }}" {% if field.required %}required{% endif %}>{{ form_values.get(field.name, '') }}</textarea>
+          {% else %}
+            <input
+              type="{{ field.input_type }}"
+              name="{{ field.name }}"
+              value="{{ form_values.get(field.name, '') }}"
+              {% if field.required %}required{% endif %}
+            >
+          {% endif %}
+        </label>
+      {% endfor %}
+      <div class="actions">
+        <button class="btn primary" type="submit">{{ action }}</button>
+        <a class="btn" href="{{ url_for(resource + '_list') }}">Cancel</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}
+
